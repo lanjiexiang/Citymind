@@ -1,0 +1,19 @@
+# Web框架相关
+Flask>=2.0.0
+flask-cors>=3.0.0
+
+# 数据库相关
+pymysql>=1.0.0
+
+# 文档处理
+python-docx>=0.8.11
+
+# 图片处理
+Pillow>=9.0.0
+numpy>=1.21.0
+
+# AI相关
+openai>=1.0.0
+
+# 浏览器自动化
+playwright>=1.30.0

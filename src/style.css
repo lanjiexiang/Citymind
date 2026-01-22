@@ -1,0 +1,548 @@
+/* 布局 & 风格 */
+:root {
+  --bg-page: #f5f7fb;
+  --panel-bg: #ffffff;
+  --accent: #0b72ff;   
+  --accent-2: #ff7ab6; 
+  --muted: #6b7280;
+  --card-shadow: rgba(11,114,255,0.06);
+  --toolbar-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --toolbar-hover: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  --online-color: #10b981;
+}
+
+.app-root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial;
+  color: #1f2937;
+  background: var(--bg-page);
+  overflow: hidden;
+}
+
+/* 顶部导航栏样式 */
+.app-header {
+  height: 64px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: var(--panel-bg);
+  border-bottom: 1px solid rgba(15,23,42,0.04);
+  z-index: 1200;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logo {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 18px;
+}
+
+/* 顶部工具栏按钮样式 */
+.toolbar-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.toolbar-btn {
+  background: var(--toolbar-gradient);
+  border-radius: 10px;
+  padding: 10px 16px;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+  color: white;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  min-height: 44px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transform: scale(1);
+}
+
+.toolbar-btn:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+  background: var(--toolbar-hover);
+  z-index: 10;
+}
+
+.toolbar-btn:active { 
+  transform: scale(1.05) translateY(0); 
+}
+
+.btn-icon {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.toolbar-btn:hover .btn-icon {
+  transform: scale(1.2);
+}
+
+.btn-text {
+  flex: 1;
+}
+
+/* 在线状态指示器 */
+.status-indicator-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #10b981; 
+  animation: pulse-dot 2s infinite;
+  box-shadow: 0 0 8px #10b981;
+  display: inline-block;
+}
+
+.status-text {
+  color: var(--online-color);
+}
+
+@keyframes pulse-dot {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* 地图控制按钮样式 */
+.map-control-btn {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  cursor: pointer;
+  border: 1px solid #e9ecef;
+  font-size: 14px;
+  color: #495057;
+  transition: all 0.2s ease;
+}
+
+.map-control-btn:hover {
+  background: #e9ecef;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+
+.map-control-btn:active {
+  transform: translateY(0);
+}
+
+/* 两栏布局：左 400px | 中 auto */
+.app-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 12px;
+  padding: 12px;
+  box-sizing: border-box;
+  min-height: 0; 
+  overflow: hidden; 
+}
+
+/* 左侧栏 */
+.left-panel {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 60%);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 6px 18px var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(11,114,255,0.06);
+  height: calc(100vh - 80px); 
+  min-height: 400px; 
+}
+.panel-title { 
+  font-weight: 700; 
+  margin-bottom: 6px; 
+  color: var(--accent); 
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+/* 聊天窗口样式 */
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  border-radius: 8px;
+  border: 1px dashed rgba(255,122,182,0.14);
+  min-height: 0; 
+  scrollbar-width: thin;
+  scrollbar-color: rgba(11,114,255,0.3) transparent;
+}
+.chat-window::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-window::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+.chat-window::-webkit-scrollbar-thumb {
+  background: rgba(11,114,255,0.3);
+  border-radius: 3px;
+}
+.chat-window::-webkit-scrollbar-thumb:hover {
+  background: rgba(11,114,255,0.5);
+}
+
+/* 消息气泡基础样式 */
+.chat-msg .msg-content {
+  padding: 10px 14px;
+  border-radius: 16px;
+  display: inline-block;
+  line-height: 1.4;
+  font-size: 14px;
+  max-width: 85%;
+  white-space: pre-wrap;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+/* 用户消息样式 */
+.from-user .msg-content {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  margin-left: auto;
+  margin-right: 12px;
+  border-bottom-right-radius: 6px;
+  position: relative;
+}
+.from-user .msg-content::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; 
+  right: -8px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #00f2fe;
+  transform: rotate(45deg);
+}
+
+/* 系统消息样式 */
+.from-system .msg-content {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #4a5568;
+  margin-right: auto;
+  margin-left: 12px;
+  border-radius: 16px; 
+}
+
+/* 输入区 */
+.chat-input {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,122,182,0.08);
+}
+.chat-input textarea {
+  flex: 1;
+  min-height: 46px;
+  padding: 10px;
+  border: 1px solid rgba(15,23,42,0.06);
+  border-radius: 10px;
+  resize: none;
+  font-size: 14px;
+  box-sizing: border-box;
+  background: #fff;
+}
+.chat-actions { display: flex; gap: 8px; align-items: center; }
+
+/* 中央面板地图与图片区 */
+.center-panel { display: flex; flex-direction: column; gap: 8px; }
+.map-top { 
+  display:flex; 
+  justify-content: space-between; 
+  align-items:center; 
+  padding:6px 2px; 
+}
+.btn-group { display:flex; gap:8px; }
+
+.map-wrapper {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #e9f4ff 0%, #ffffff 100%);
+  flex: 1;
+  border: 1px solid rgba(11,114,255,0.06);
+  box-shadow: 0 8px 20px rgba(11,114,255,0.04);
+}
+.map-container { width: 100%; height: 100%; min-height: 480px; }
+
+.content-wrapper {
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #e9f4ff 0%, #ffffff 100%);
+  border: 1px solid rgba(11,114,255,0.06);
+  box-shadow: 0 8px 20px rgba(11,114,255,0.04);
+}
+
+.image-wrapper {
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* 通用按钮样式 */
+.btn {
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 12px rgba(2,6,23,0.04);
+  cursor: pointer;
+  border: 1px solid rgba(15,23,42,0.06);
+  font-size: 14px;
+  color: #0f172a;
+  transition: all 0.2s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(2,6,23,0.06);
+}
+.btn:active { transform: translateY(1px); }
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .toolbar-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+    min-height: 40px;
+  }
+  
+  .btn-icon {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .app-main { grid-template-columns: 400px 1fr; }
+  .map-container { min-height: 380px; }
+  
+  .toolbar-buttons {
+    gap: 8px;
+  }
+  
+  .toolbar-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    min-height: 36px;
+  }
+}
+
+/* 禁用按钮样式 */
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.pagination-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 图片选择集样式 */
+.collection-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.collection-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+}
+
+.collection-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.collection-wrapper {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.collection-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  min-width: 180px;
+  border: 2px solid transparent;
+}
+
+.collection-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  border-color: #0b72ff;
+}
+
+.card-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.collection-card h3 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.collection-card p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+
+/* 技术经济指标信息窗口样式 */
+.economic-info-window {
+  position: absolute;
+  z-index: 1000;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(11, 114, 255, 0.1);
+  min-width: 300px;
+  max-width: 400px;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info-header {
+  background: linear-gradient(135deg, #0b72ff 0%, #4facfe 100%);
+  color: white;
+  padding: 16px;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.info-content {
+  padding: 16px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.indicator-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.indicator-row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-weight: 500;
+  color: #4a5568;
+  font-size: 14px;
+}
+
+.value {
+  font-weight: 600;
+  color: #0b72ff;
+  font-size: 14px;
+}

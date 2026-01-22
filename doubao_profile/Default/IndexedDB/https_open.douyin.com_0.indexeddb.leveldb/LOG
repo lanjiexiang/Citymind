@@ -1,0 +1,4 @@
+2026/01/16-21:10:39.264 3094 Creating DB D:\Schooling life\University\大四\大四下\智慧城市研究\project\doubao_profile\Default\IndexedDB\https_open.douyin.com_0.indexeddb.leveldb since it was missing.
+2026/01/16-21:10:39.266 3094 Reusing MANIFEST D:\Schooling life\University\大四\大四下\智慧城市研究\project\doubao_profile\Default\IndexedDB\https_open.douyin.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/01/16-21:10:39.267 3094 Recovering log #3
+2026/01/16-21:10:39.267 3094 Reusing old log D:\Schooling life\University\大四\大四下\智慧城市研究\project\doubao_profile\Default\IndexedDB\https_open.douyin.com_0.indexeddb.leveldb/000003.log 

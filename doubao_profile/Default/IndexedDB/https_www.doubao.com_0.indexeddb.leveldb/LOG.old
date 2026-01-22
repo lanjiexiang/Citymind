@@ -1,0 +1,15 @@
+2026/01/20-21:34:00.979 39ac Reusing MANIFEST D:\Schooling life\University\大四\大四下\智慧城市研究\code\doubao_profile\Default\IndexedDB\https_www.doubao.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/01/20-21:34:00.979 39ac Recovering log #141
+2026/01/20-21:34:00.981 39ac Reusing old log D:\Schooling life\University\大四\大四下\智慧城市研究\code\doubao_profile\Default\IndexedDB\https_www.doubao.com_0.indexeddb.leveldb/000141.log 
+2026/01/20-21:34:03.127 39ac Compacting 1@0 + 1@1 files
+2026/01/20-21:34:03.137 39ac Generated table #144@0: 559 keys, 39696 bytes
+2026/01/20-21:34:03.137 39ac Compacted 1@0 + 1@1 files => 39696 bytes
+2026/01/20-21:34:03.138 39ac compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/01/20-21:34:03.139 39ac Delete type=2 #140
+2026/01/20-21:34:03.139 39ac Delete type=2 #142
+2026/01/20-21:34:40.099 3244 Level-0 table #146: started
+2026/01/20-21:34:40.118 3244 Level-0 table #146: 1561386 bytes OK
+2026/01/20-21:34:40.120 3244 Delete type=0 #141
+2026/01/20-21:35:28.026 3244 Level-0 table #148: started
+2026/01/20-21:35:28.046 3244 Level-0 table #148: 1557285 bytes OK
+2026/01/20-21:35:28.047 3244 Delete type=0 #145
