@@ -1,0 +1,102 @@
+.cad-overlay-panel {
+  pointer-events: auto;
+  z-index: 1002;
+}
+
+.cad-canvas {
+  display: block;
+  cursor: move;
+  background: transparent;
+}
+
+.cad-toolbar {
+  position: absolute;
+  right: 200px;
+  top: 80px;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 8px;
+  padding: 10px;
+  width: 150px;
+}
+
+.toolbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.toolbar-row button {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 6px;
+  background: #444;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.toolbar-row button:hover {
+  background: #555;
+}
+
+.scale-value {
+  color: #fff;
+  font-size: 12px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.opacity-label {
+  color: #fff;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.opacity-label input {
+  width: 100%;
+}
+
+.toolbar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.toolbar-actions button {
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+
+
+.btn-confirm {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: #fff;
+  font-weight: 700;
+}
+
+.btn-confirm:disabled {
+  background: #555;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cad-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
